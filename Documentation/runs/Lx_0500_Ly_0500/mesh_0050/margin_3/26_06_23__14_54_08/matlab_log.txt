@@ -1,0 +1,149 @@
+
+--- GEOMETRIC PARAMETERS ---
+Lx               : 0.0500 m
+Ly               : 0.0500 m
+delx             : 0.0050 m
+dely             : 0.0050 m
+
+--- DOMAIN DIMENSIONS ---
+margin_BEM_coeff : 3
+margin           : 0.1500 m
+X_mesh           : 0.3500 m
+Y_mesh           : 0.3500 m
+
+--- PHYSICAL PARAMETERS ---
+e0               : 8.8500e-12 F/m
+er               : 1.0000
+V1               : 0.5000 V
+V2               : -0.5000 V
+
+--- MESH ---
+Time of mesh generation: 0.0149 s
+Mesh Dimension: 5041
+Connectivity Dimension: 9800
+
+--- NODES ---
+Nodes on the plates: 22
+Nodes on the boundary: 280
+Other Nodes: 4739
+
+--- ASSEMBLE S ---
+Time of assemble S: 0.4522 s
+Element in S (sparse): 24921
+Sparsity Percentage: 0.09807
+
+--- ASSEMBLE T ---
+Time of assemble T: 0.0127 s
+Element in T (sparse): 840
+Sparsity Percentage: 1.071
+
+--- ASSEMBLE G H ---
+Time of assemble G and H: 7.8995 s
+Element in G: 78400
+Sparsity Percentage: 100.0000
+cond(G_bem) = 522.7
+Lower Eigenvalue of G -0.0006787
+
+Element in H: 78400
+Sparsity Percentage: 100.0000
+cond(H_bem) = 7.12e+16
+Diagonal values of H: -0.5000  -0.2500
+
+--- COUPLED SYSTEM ---
+Time of solve BEM Matrix: 0.0635 s
+cond(BEM_matrix) = 1.311e+17
+cond(T_BB * BEM_matrix) = 3.879e+17
+
+Number of elements of K: [5019 x 5019]
+Element of matrix K 25190361
+Element in K (semi-sparse): 102323
+Sparsity Percentage: 0.4062
+
+Element RHS: 5019
+Sparsity Percentage: 0.9564
+
+--- SOLVE COUPLED SYSYEM ---
+Time of solve COUPLED SYSTEM: 0.0127 s
+Time FEM-BEM method (except Mesh Generation): 8.4406 s
+
+
+
+
+==========================================
+            POST-PROCESSING               
+==========================================
+
+------- E Field -------
+Theoretical E           = 20.0000 V/m
+Threshold Factor        = 5.0000 %
+Threshold E             = 21.0000 V/m
+Elements with E > thr   : 42
+Elements with E <= thr  : 158
+
+Flux of E on Gamma: -1.794e-13 V/m
+
+------- CHARGE on PLATES -------
+Total charge upper plate  (Q_top)   : 1.154350e-11 C/m
+Total charge upper plate  (Q_top_out)   : 5.567413e-12 C/m
+Total charge lower plate  (Q_bottom): -1.154350e-11 C/m
+Total charge lower plate  (Q_bottom_out)   : -5.567413e-12 C/m
+Sum (Q_tot)               : -6.462349e-27 C/m
+Ratio Q_top/Q_bot         : -1.000000e+00
+
+Average charge density upper plate: 2.975810e-10 C/m^2
+Average charge density lower plate: -2.975810e-10 C/m^2
+
+------- CAPACITANCE CHARGE METHOD -------
+Capacitance (from upper plate)          : 1.711091e-11 F/m
+Capacitance (from lower plate)          : 1.711091e-11 F/m
+Average capacitance                     : 1.711091e-11 F/m
+Theoretical capacitance (infinite plate): 8.850000e-12 F/m
+Relative error                          : 93.3436%
+
+Lx : 0.050000 m
+Ly = 0.050000 m
+Q_{top}    : +1.711091e-11 C/m
+Q_{bottom} : -1.711091e-11 C/m
+Q_{sum}    : -4.846761e-27 C/m
+ΔV         : 1.000000 V
+
+------- CAPACITANCE ENERGY METHOD -------
+Capacitance in all the BEM domain       : 1.92484e-11 F/m
+Theoretical capacitance (infinite plate): 8.85e-12 F/m
+Relative error all BEM                  : 117.5%
+
+==========================================
+               ERROR ANALISYS               
+==========================================
+
+--- iteration: 1 , margin: 3 * Ly---
+Real Margin: 0.1500 m
+X_mesh           : 0.3500 m
+Y_mesh           : 0.3500 m
+
+------- CAPACITANCE ENERGY METHOD -------
+Capacitance in all the BEM domain       : 1.99794e-11 F/m
+Theoretical capacitance (infinite plate): 8.85e-12 F/m
+Relative error all BEM                  : 125.8%
+Relative error all FEM-BEM vs FEM       : 3.659%
+
+--- iteration: 2 , margin: 10 * Ly---
+Real Margin: 0.5000 m
+X_mesh           : 1.0500 m
+Y_mesh           : 1.0500 m
+
+------- CAPACITANCE ENERGY METHOD -------
+Capacitance in all the BEM domain       : 1.95425e-11 F/m
+Theoretical capacitance (infinite plate): 8.85e-12 F/m
+Relative error all BEM                  : 120.8%
+Relative error all FEM-BEM vs FEM       : 1.505%
+
+Margin/Ly       N nodes    err_L2 (%)   err_C_all    time (s)  
+---------       -------    ------       ------       --------  
+3               5041       45.76        1.998e-11    0.176     
+10              44521      6.472        1.954e-11    5.63      
+FEM-BEM(ref)    5041       --           1.925e-11    8.455     
+
+
+
+END OF LOG
